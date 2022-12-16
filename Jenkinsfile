@@ -4,7 +4,7 @@ pipeline{
       nodejs 'nodejs16.16.0'
     }
     stages{
-        stage(SCM){
+        stage('SCM'){
             steps{
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/jisnarose6y/react-todo-app.git'
             }
@@ -19,6 +19,15 @@ pipeline{
                 sh 'npm start'
             }
         }
+        stage('deploy'){
+            
+            steps{
+                sh 'cp /var/lib/jenkins/workspace/react-todo-pipeline/build/* /var/www/html/'
+            }
+            
+        }
+        
+
 
         }
     }
