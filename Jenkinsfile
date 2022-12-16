@@ -22,12 +22,10 @@ pipeline{
         stage('deploy'){
             
             steps{
-                sh 'cp /var/lib/jenkins/workspace/react-todo-pipeline/build/* /var/www/html/'
+                sh 'cp ./build/* /var/www/html/'
             }
             
         }
-        
-
-
+      
         }
     }
