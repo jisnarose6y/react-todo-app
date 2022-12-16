@@ -1,0 +1,21 @@
+pipeline{
+    aganet any
+    stages{
+        stage(SCM){
+            steps{
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/jisnarose6y/react-todo-app.git'
+            }
+        }
+        stage(install){
+            steps{
+              sh npm install
+            }
+        }
+        stage(build){
+            steps{
+                sh npm start
+            }
+        }
+
+        }
+    }
